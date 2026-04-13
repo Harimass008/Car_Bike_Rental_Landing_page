@@ -2,6 +2,8 @@
    script.js — RideNow Car & Bike Rental
    ═══════════════════════════════════════════════ */
 
+document.addEventListener('DOMContentLoaded', function () {
+
 /* ══ 1. Footer Year ══ */
 document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -261,3 +263,5 @@ window.addEventListener('scroll', () => {
 backToTop.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+}); // END DOMContentLoaded
