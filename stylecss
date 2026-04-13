@@ -63,6 +63,14 @@ body {
 }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 
+/* Fallback: if JS doesn't load, show all content after 1s */
+@keyframes fallback-show {
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+  animation: fallback-show 0s 1.5s forwards;
+}
+
 /* ═══════════════════════════════════════════════
    NAVBAR
    ═══════════════════════════════════════════════ */
