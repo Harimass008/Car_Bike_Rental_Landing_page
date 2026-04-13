@@ -1,359 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RideNow - Car & Bike Rentals</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RideNow - Car & Bike Rentals</title>
+  
 </head>
 <body>
-    <!--  Navbar -->
-    <header class="header">
-        <nav class="nav container">
-            <a href="#" class="nav__logo">Ride<span>Now</span></a>
 
-            <input type="checkbox" id="nav-toggle" class="nav__toggle">
-            <label for="nav-toggle" class="nav__toggle-label">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
+<!-- Navbar -->
+<header class="header" id="header">
+  <nav class="nav container">
+    <a href="#home" class="nav__logo">Ride<span>Now</span></a>
 
-            <ul class="nav__menu">
-                <li><a href="#home" class="nav__link ">Home</a></li>
-                <li><a href="#services" class="nav__link">Services</a></li>
-                <li><a href="#package" class="nav__link">Package</a></li>
-                <li><a href="#works" class="nav__link">How it works</a></li>
-                <li><a href="#contact" class="nav__link nav__cta">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
 
-    <!--  Home -->
-    <main>
-        <section class="hero" id="home">
-            <div class="hero__overlay"></div>
-            <div class="container hero__content">
-                <div class="hero__text">
-                    <h1>Rent the perfect <span>Car</span> or <span>Bike</span> in minutes.</h1>
-                    <p>
-                        Flexible rentals for daily commutes, road trips, and weekend getaways.
-                        Zero booking fees. Instant confirmation.
-                    </p>
-                    <div class="hero__actions">
-                        <a href="#booking" class="btn btn--primary">Book Now</a>
-                        <a href="#fleet" class="btn btn--outline">View Fleet</a>
-                    </div>
-                    <div class="hero__stats">
-                        <div>
-                            <h3>500+</h3>
-                            <p>Vehicles</p>
-                        </div>
-                        <div>
-                            <h3>4.8★</h3>
-                            <p>Customer Rating</p>
-                        </div>
-                        <div>
-                            <h3>120K+</h3>
-                            <p>Rides Completed</p>
-                        </div>
-                    </div>
-                </div>
+    <ul class="nav__menu" id="nav-menu">
+      <li><a href="#home"     class="nav__link" data-section="home">Home</a></li>
+      <li><a href="#services" class="nav__link" data-section="services">Services</a></li>
+      <li><a href="#package"  class="nav__link" data-section="package">Package</a></li>
+      <li><a href="#works"    class="nav__link" data-section="works">How it works</a></li>
+      <li><a href="#contact"  class="nav__link nav__cta" data-section="contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-                <div class="hero__card" id="booking">
-                    <h2>Find your ride</h2>
-                    <form class="booking-form">
-                        <div class="booking-form__group booking-form__group--full">
-                            <label>Choose vehicle</label>
-                            <div class="toggle-pill">
-                                <input type="radio" id="vehicle-car" name="vehicle-type" checked>
-                                <label for="vehicle-car">Car</label>
-                                <input type="radio" id="vehicle-bike" name="vehicle-type">
-                                <label for="vehicle-bike">Bike</label>
-                                <span class="toggle-pill__indicator"></span>
-                            </div>
-                        </div>
+<!-- Hero -->
+<main>
+<section class="hero" id="home">
+  <div class="container hero__content">
 
-                        <div class="booking-form__group">
-                            <label for="pickup">Pickup location</label>
-                            <input type="text" id="pickup" placeholder="City / Landmark">
-                        </div>
+    <div class="hero__text fade-in">
+      <h1>Rent the perfect <span>Car</span> or <span>Bike</span> in minutes.</h1>
+      <p>Flexible rentals for daily commutes, road trips, and weekend getaways.<br>Zero booking fees. Instant confirmation.</p>
+      <div class="hero__actions">
+        <a href="#booking" class="btn btn--primary">Book Now</a>
+        <a href="#package" class="btn btn--outline">View Fleet</a>
+      </div>
+      <div class="hero__stats">
+        <div><h3 data-count="500">0</h3><p>Vehicles</p></div>
+        <div><h3 data-count="4.8" data-suffix="★">0</h3><p>Rating</p></div>
+        <div><h3 data-count="120" data-suffix="K+">0</h3><p>Rides</p></div>
+      </div>
+    </div>
 
-                        <div class="booking-form__group">
-                            <label for="drop">Drop location</label>
-                            <input type="text" id="drop" placeholder="Same as pickup or different">
-                        </div>
-
-                        <div class="booking-form__group">
-                            <label for="pickup-date">Pickup date</label>
-                            <input type="date" id="pickup-date">
-                        </div>
-                        <div class="booking-form__group">
-                            <label for="pickup-time">Pickup time</label>
-                            <input type="time" id="pickup-time">
-                        </div>
-
-                        <div class="booking-form__group booking-form__group--full">
-                            <button type="submit" class="btn btn--primary btn--block">
-                                Search Available Rides
-                            </button>
-                        </div>
-                    </form>
-                    <p class="hero__note">No credit card required to browse vehicles.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services -->
-
-        <section class="section" id="services">
-            <div class="container">
-                <div class="section__header">
-                    <h2>Why ride with RideNow?</h2>
-                    <p>Simple, transparent and flexible rentals tailored for you.</p>
-                </div>
-                <div class="grid grid--3">
-                    <article class="card feature-card">
-                        <div class="feature-card__icon">🚗</div>
-                        <h3>Wide Range of Vehicles</h3>
-                        <p>From compact city cars and premium sedans to scooters and superbikes.</p>
-                    </article>
-                    <article class="card feature-card">
-                        <div class="feature-card__icon">⏱️</div>
-                        <h3>Flexible Durations</h3>
-                        <p>Rent by the hour, day, week or month with easy extensions.</p>
-                    </article>
-                    <article class="card feature-card">
-                        <div class="feature-card__icon">🛡️</div>
-                        <h3>Safe & Insured</h3>
-                        <p>All vehicles are regularly serviced and come with basic insurance.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Package -->
-
-        <section class="section section--alt" id="package">
-            <div class="container">
-                <div class="section__header">
-                    <h2>Our Popular package</h2>
-                    <p>Select from our bestsellers across cars and bikes.</p>
-                </div>
-
-                <div class="fleet-tabs">
-                    <input type="radio" id="tab-cars" name="fleet-tab" checked>
-                    <label for="tab-cars" class="fleet-tabs__label">Cars</label>
-
-                    <input type="radio" id="tab-bikes" name="fleet-tab">
-                    <label for="tab-bikes" class="fleet-tabs__label">Bikes</label>
-
-                    <div class="fleet-tabs__indicator"></div>
-
-                    <div class="fleet-tabs__content">
-                        <div class="fleet-panel fleet-panel--cars">
-                            <div class="grid grid--3">
-                                <article class="card vehicle-card">
-                                    <div class="vehicle-card__badge">Most booked</div>
-                                    <h3>City Compact</h3>
-                                    <p>Perfect for daily city commutes and short trips.</p>
-                                    <ul>
-                                        <li>AC • Automatic</li>
-                                        <li>Fuel efficient</li>
-                                        <li>Seats 4</li>
-                                    </ul>
-                                    <div class="vehicle-card__footer">
-                                        <span class="price">₹799<span>/day</span></span>
-                                        <button class="btn btn--ghost">View details</button>
-                                    </div>
-                                </article>
-
-                                <article class="card vehicle-card">
-                                    <h3>Premium Sedan</h3>
-                                    <p>Ideal for business trips and outstation journeys.</p>
-                                    <ul>
-                                        <li>AC • Automatic</li>
-                                        <li>Spacious boot</li>
-                                        <li>Seats 5</li>
-                                    </ul>
-                                    <div class="vehicle-card__footer">
-                                        <span class="price">₹1299<span>/day</span></span>
-                                        <button class="btn btn--ghost">View details</button>
-                                    </div>
-                                </article>
-
-                                <article class="card vehicle-card">
-                                    <h3>Family SUV</h3>
-                                    <p>Extra space for luggage and big family trips.</p>
-                                    <ul>
-                                        <li>AC • Manual</li>
-                                        <li>High ground clearance</li>
-                                        <li>Seats 7</li>
-                                    </ul>
-                                    <div class="vehicle-card__footer">
-                                        <span class="price">₹1699<span>/day</span></span>
-                                        <button class="btn btn--ghost">View details</button>
-                                    </div>
-                                </article>
-                            </div>
-                        </div>
-
-                        <div class="fleet-panel fleet-panel--bikes">
-                            <div class="grid grid--3">
-                                <article class="card vehicle-card">
-                                    <div class="vehicle-card__badge">Budget</div>
-                                    <h3>City Scooter</h3>
-                                    <p>Easy to ride and park, best for quick errands.</p>
-                                    <ul>
-                                        <li>Automatic</li>
-                                        <li>Great mileage</li>
-                                        <li>Helmets included</li>
-                                    </ul>
-                                    <div class="vehicle-card__footer">
-                                        <span class="price">₹399<span>/day</span></span>
-                                        <button class="btn btn--ghost">View details</button>
-                                    </div>
-                                </article>
-
-                                <article class="card vehicle-card">
-                                    <h3>Tourer Bike</h3>
-                                    <p>Comfortable rides for long-distance touring.</p>
-                                    <ul>
-                                        <li>5-speed</li>
-                                        <li>Luggage mounts</li>
-                                        <li>Helmets included</li>
-                                    </ul>
-                                    <div class="vehicle-card__footer">
-                                        <span class="price">₹699<span>/day</span></span>
-                                        <button class="btn btn--ghost">View details</button>
-                                    </div>
-                                </article>
-
-                                <article class="card vehicle-card">
-                                    <h3>Performance Bike</h3>
-                                    <p>For enthusiasts who love speed and power.</p>
-                                    <ul>
-                                        <li>6-speed</li>
-                                        <li>Disc brakes</li>
-                                        <li>Helmets included</li>
-                                    </ul>
-                                    <div class="vehicle-card__footer">
-                                        <span class="price">₹999<span>/day</span></span>
-                                        <button class="btn btn--ghost">View details</button>
-                                    </div>
-                                </article>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!--  works -->
-
-        <section class="section" id="works">
-            <div class="container">
-                <div class="section__header">
-                    <h2>How it works</h2>
-                    <p>Book your ride in 3 simple steps.</p>
-                </div>
-                <div class="timeline">
-                    <div class="timeline__item">
-                        <div class="timeline__number">1</div>
-                        <h3>Choose your vehicle</h3>
-                        <p>Browse and pick from our curated list of cars and bikes.</p>
-                    </div>
-                    <div class="timeline__item">
-                        <div class="timeline__number">2</div>
-                        <h3>Select time & location</h3>
-                        <p>Set pickup & drop details that work best for you.</p>
-                    </div>
-                    <div class="timeline__item">
-                        <div class="timeline__number">3</div>
-                        <h3>Pick up & ride</h3>
-                        <p>Complete quick verification and you're ready to go.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact -->
-
-        <section class="section section--contact" id="contact">
-            <div class="container contact">
-                <!-- Left: Info -->
-                <div class="contact__info">
-                    <h2>Get in touch</h2>
-                    <p>
-                        Have questions about bookings, pricing or corporate plans?
-                        Send us a message and we’ll get back to you soon.
-                    </p>
-                    <div class="contact__items">
-                        <div class="contact__item">
-                            <h3>Phone</h3>
-                            <p>+91 98765 43210</p>
-                        </div>
-                        <div class="contact__item">
-                            <h3>Email</h3>
-                            <p>support@ridenow.com</p>
-                        </div>
-                        <div class="contact__item">
-                            <h3>Location</h3>
-                            <p>Chennai, Tamil Nadu, India</p>
-                        </div>
-                    </div>
-
-                    <div class="contact__note">
-                        <p>Working hours: Mon – Sun, 8:00 AM – 10:00 PM</p>
-                    </div>
-                </div>
-
-                        <!-- Right: Form -->
-                <form class="contact__form">
-                    <div class="contact__row">
-                        <div class="contact__group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" placeholder="Enter your name">
-                        </div>
-                        <div class="contact__group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX">
-                        </div>
-                    </div>
-
-                    <div class="contact__group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" placeholder="you@example.com">
-                    </div>
-
-                    <div class="contact__group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" placeholder="Booking enquiry / Pricing / Other">
-                    </div>
-
-                    <div class="contact__group">
-                        <label for="message">Message</label>
-                        <textarea id="message" rows="4" placeholder="Type your message here..."></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn--primary btn--block">
-                        Send Message
-                    </button>
-
-                    <p class="contact__small">
-                        This is a demo form – you can connect it to backend later.
-                    </p>
-                </form>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer__content">
-            <p>© <span id="year"></span> RideNow Rentals. All rights reserved.</p>
+    <div class="hero__card fade-in" id="booking">
+      <h2>Find your ride</h2>
+      <form class="booking-form" id="booking-form" novalidate>
+        <div class="booking-form__group booking-form__group--full">
+          <label>Choose vehicle</label>
+          <div class="toggle-pill">
+            <input type="radio" id="vehicle-car" name="vehicle-type" checked>
+            <label for="vehicle-car">🚗 Car</label>
+            <input type="radio" id="vehicle-bike" name="vehicle-type">
+            <label for="vehicle-bike">🏍️ Bike</label>
+          </div>
         </div>
-    </footer>
+        <div class="booking-form__group">
+          <label for="pickup">Pickup location</label>
+          <input type="text" id="pickup" placeholder="City / Landmark">
+        </div>
+        <div class="booking-form__group">
+          <label for="drop">Drop location</label>
+          <input type="text" id="drop" placeholder="Same as pickup or different">
+        </div>
+        <div class="booking-form__group">
+          <label for="pickup-date">Pickup date</label>
+          <input type="date" id="pickup-date">
+        </div>
+        <div class="booking-form__group">
+          <label for="pickup-time">Pickup time</label>
+          <input type="time" id="pickup-time">
+        </div>
+        <div class="booking-form__group booking-form__group--full">
+          <button type="submit" class="btn btn--primary btn--block" id="search-btn">
+            Search Available Rides
+          </button>
+        </div>
+      </form>
+      <p class="hero__note">No credit card required to browse vehicles.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section__header fade-in">
+      <h2>Why ride with RideNow?</h2>
+      <p>Simple, transparent and flexible rentals tailored for you.</p>
+    </div>
+    <div class="grid grid--3">
+      <article class="card feature-card fade-in">
+        <div class="feature-card__icon">🚗</div>
+        <h3>Wide Range of Vehicles</h3>
+        <p>From compact city cars and premium sedans to scooters and superbikes.</p>
+      </article>
+      <article class="card feature-card fade-in">
+        <div class="feature-card__icon">⏱️</div>
+        <h3>Flexible Durations</h3>
+        <p>Rent by the hour, day, week or month with easy extensions.</p>
+      </article>
+      <article class="card feature-card fade-in">
+        <div class="feature-card__icon">🛡️</div>
+        <h3>Safe & Insured</h3>
+        <p>All vehicles are regularly serviced and come with basic insurance.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Package -->
+<section class="section section--alt" id="package">
+  <div class="container">
+    <div class="section__header fade-in">
+      <h2>Our Popular Packages</h2>
+      <p>Select from our bestsellers across cars and bikes.</p>
+    </div>
+    <div class="fleet-tabs">
+      <div class="fleet-tabs__nav">
+        <button class="tab-btn active" data-tab="cars">🚗 Cars</button>
+        <button class="tab-btn" data-tab="bikes">🏍️ Bikes</button>
+      </div>
+
+      <div class="fleet-panel active" id="tab-cars">
+        <div class="grid grid--3">
+          <article class="card vehicle-card fade-in">
+            <div class="vehicle-card__badge">Most booked</div>
+            <h3>City Compact</h3>
+            <p>Perfect for daily city commutes and short trips.</p>
+            <ul><li>AC • Automatic</li><li>Fuel efficient</li><li>Seats 4</li></ul>
+            <div class="vehicle-card__footer">
+              <span class="price">₹799<span>/day</span></span>
+              <button class="btn btn--ghost" onclick="bookVehicle('City Compact', 799)">Book Now</button>
+            </div>
+          </article>
+          <article class="card vehicle-card fade-in">
+            <h3>Premium Sedan</h3>
+            <p>Ideal for business trips and outstation journeys.</p>
+            <ul><li>AC • Automatic</li><li>Spacious boot</li><li>Seats 5</li></ul>
+            <div class="vehicle-card__footer">
+              <span class="price">₹1299<span>/day</span></span>
+              <button class="btn btn--ghost" onclick="bookVehicle('Premium Sedan', 1299)">Book Now</button>
+            </div>
+          </article>
+          <article class="card vehicle-card fade-in">
+            <h3>Family SUV</h3>
+            <p>Extra space for luggage and big family trips.</p>
+            <ul><li>AC • Manual</li><li>High ground clearance</li><li>Seats 7</li></ul>
+            <div class="vehicle-card__footer">
+              <span class="price">₹1699<span>/day</span></span>
+              <button class="btn btn--ghost" onclick="bookVehicle('Family SUV', 1699)">Book Now</button>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="fleet-panel" id="tab-bikes">
+        <div class="grid grid--3">
+          <article class="card vehicle-card fade-in">
+            <div class="vehicle-card__badge">Budget</div>
+            <h3>City Scooter</h3>
+            <p>Easy to ride and park, best for quick errands.</p>
+            <ul><li>Automatic</li><li>Great mileage</li><li>Helmets included</li></ul>
+            <div class="vehicle-card__footer">
+              <span class="price">₹399<span>/day</span></span>
+              <button class="btn btn--ghost" onclick="bookVehicle('City Scooter', 399)">Book Now</button>
+            </div>
+          </article>
+          <article class="card vehicle-card fade-in">
+            <h3>Tourer Bike</h3>
+            <p>Comfortable rides for long-distance touring.</p>
+            <ul><li>5-speed</li><li>Luggage mounts</li><li>Helmets included</li></ul>
+            <div class="vehicle-card__footer">
+              <span class="price">₹699<span>/day</span></span>
+              <button class="btn btn--ghost" onclick="bookVehicle('Tourer Bike', 699)">Book Now</button>
+            </div>
+          </article>
+          <article class="card vehicle-card fade-in">
+            <h3>Performance Bike</h3>
+            <p>For enthusiasts who love speed and power.</p>
+            <ul><li>6-speed</li><li>Disc brakes</li><li>Helmets included</li></ul>
+            <div class="vehicle-card__footer">
+              <span class="price">₹999<span>/day</span></span>
+              <button class="btn btn--ghost" onclick="bookVehicle('Performance Bike', 999)">Book Now</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="section" id="works">
+  <div class="container">
+    <div class="section__header fade-in">
+      <h2>How it works</h2>
+      <p>Book your ride in 3 simple steps.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline__item fade-in">
+        <div class="timeline__number">1</div>
+        <h3>Choose your vehicle</h3>
+        <p>Browse and pick from our curated list of cars and bikes.</p>
+      </div>
+      <div class="timeline__item fade-in">
+        <div class="timeline__number">2</div>
+        <h3>Select time & location</h3>
+        <p>Set pickup & drop details that work best for you.</p>
+      </div>
+      <div class="timeline__item fade-in">
+        <div class="timeline__number">3</div>
+        <h3>Pick up & ride</h3>
+        <p>Complete quick verification and you're ready to go.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section section--contact" id="contact">
+  <div class="container contact">
+    <div class="contact__info fade-in">
+      <h2>Get in touch</h2>
+      <p>Have questions about bookings, pricing or corporate plans? Send us a message.</p>
+      <div class="contact__items">
+        <div class="contact__item"><h3>Phone</h3><p>+91 98765 43210</p></div>
+        <div class="contact__item"><h3>Email</h3><p>support@ridenow.com</p></div>
+        <div class="contact__item"><h3>Location</h3><p>Chennai, Tamil Nadu, India</p></div>
+      </div>
+      <div class="contact__note"><p>Working hours: Mon – Sun, 8:00 AM – 10:00 PM</p></div>
+    </div>
+
+    <form class="contact__form fade-in" id="contact-form" novalidate>
+      <div class="contact__row">
+        <div class="contact__group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Enter your name">
+        </div>
+        <div class="contact__group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX">
+        </div>
+      </div>
+      <div class="contact__group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="you@example.com">
+      </div>
+      <div class="contact__group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" placeholder="Booking enquiry / Pricing / Other">
+      </div>
+      <div class="contact__group">
+        <label for="message">Message</label>
+        <textarea id="message" rows="4" placeholder="Type your message here..."></textarea>
+      </div>
+      <button type="submit" class="btn btn--primary btn--block">Send Message</button>
+      <p class="contact__small">We'll get back to you within 24 hours.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <p>© <span id="year"></span> RideNow Rentals. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+
 </body>
 </html>
